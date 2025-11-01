@@ -1,0 +1,13 @@
+export const RelatedProductsSkeleton = () => {
+    return (
+        <div className="mt-10 ">
+            <div className="bg-gray-100 rounded w-52 h-8 mb-4 mx-auto md:mx-0 animate-pulse"></div>
+            <div className="mt-9 grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="bg-gray-100 h-80 rounded animate-pulse"></div>
+                <div className="bg-gray-100 h-80 rounded animate-pulse"></div>
+                <div className="bg-gray-100 h-80 rounded animate-pulse"></div>
+                <div className="bg-gray-100 h-80 rounded animate-pulse"></div>
+            </div>
+        </div>
+    )
+}
