@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { StoreHydration } from "@/provaders/store-hydration";
 
 export default function SiteLayout({
   children,
@@ -8,11 +9,10 @@ export default function SiteLayout({
 }>) {
   return (
     <div>
-      <Header/>
-      <main className="w-full max-w-6xl mx-auto p-6">
-        {children}
-      </main> 
-      <Footer/>  
+      <StoreHydration />
+      <Header />
+      <main className="w-full max-w-6xl mx-auto p-6">{children}</main>
+      <Footer />
     </div>
   );
 }
