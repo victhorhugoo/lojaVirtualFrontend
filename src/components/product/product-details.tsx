@@ -2,7 +2,9 @@
 
 import { useCartStore } from "@/store/cart";
 import { ProductComplete } from "@/types/product";
+import { redirect } from "next/navigation";
 import Image from "next/image";
+import { setCartState } from "@/actions/set-cart-state";
 
 type Props = {
   product: ProductComplete;
@@ -10,8 +12,12 @@ type Props = {
 
 export const ProductDetails = ({ product }: Props) => {
   const cartStore = useCartStore((state) => state);
+
   const addToCart = async () => {
-    // TODO
+    cartStore.addItem({ productId: product.id, quantity: 1 });
+    const updatedCart = useCartStore.getState().cart;
+    await setCartState(updatedCart);
+    redirect("/cart");
   };
   return (
     <div className="flex-1">
@@ -21,6 +27,7 @@ export const ProductDetails = ({ product }: Props) => {
         R$ {product.price.toFixed(2)}
       </div>
       <div className="text-sm text-gray-500 mb-6">Em até 12x no cartão</div>
+      <div>CARRINHO: {cartStore.cart.length}</div>
       <div className="flex gap-4">
         <button
           onClick={addToCart}
