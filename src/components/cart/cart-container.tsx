@@ -43,7 +43,7 @@ export const CartContainer = ({
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-8 mt-9 ">
-        <div className="flex-1 border border-gray-200 rounded-sm">
+        <div className="flex-1 rounded-sm">
           <CartProductList initialList={initialCartProducts} />
         </div>
         <div className="flex-1 md:max-w-sm flex flex-col gap-4">
